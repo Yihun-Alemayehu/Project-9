@@ -13,10 +13,10 @@ class News {
 
   factory News.fromJson(Map<String, dynamic> json) {
     return News(
-      title: json['title'],
-      description: json['description'],
-      url: json['url'],
-      imageUrl: json['imageUrl'],
+      title: json['title'] ?? '',
+      description: json['description'] ?? '',
+      url: json['url'] ?? '',
+      imageUrl: json['urlToImage'] ?? '',
     );
   }
 }
