@@ -22,7 +22,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
               'https://newsapi.org/v2/everything?q=tesla&from=2024-01-19&sortBy=publishedAt&apiKey=$API_KEY'),
         );
         if (response.statusCode == 200) {
-          final List<dynamic> jsonData = json.decode(response.body);
+          final List<dynamic> jsonData = json.decode(response.body)['articles'];
           final List<News> news = jsonData.map((data) => News.fromJson(data)).toList();
           emit(NewsLoaded(articles: news));
         }else {

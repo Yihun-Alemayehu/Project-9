@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:project_9/bloc/news_bloc.dart';
 import 'package:project_9/data/models/news_model.dart';
+import 'package:project_9/screens/newsdetail_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -43,7 +44,14 @@ class HomeScreen extends StatelessWidget {
         return ListTile(
           title: Text(article.title),
           subtitle: Text(article.description),
-          onTap: () {},
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => NewsDetailScreen(news: article),
+              ),
+            );
+          },
         );
       },
     );
